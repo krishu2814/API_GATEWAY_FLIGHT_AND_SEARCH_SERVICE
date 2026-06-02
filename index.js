@@ -15,6 +15,11 @@ app.use(morgan('combined')); // tiny
 const limiter = rateLimit({ windowMs: 2 * 60 * 1000, max: 200 });
 app.use(limiter);
 
+app.use('/home', (req, res) => {
+    console.log('OK');
+    res.send("It is working");
+})
+
 /**
  * Authenticate User Before using any services like { Booking.... }
  * Use Middleware
